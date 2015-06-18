@@ -12,9 +12,9 @@ var browserify = require("browserify");
 var babelify = require("babelify");
 
 var paths = {
-    main: ['./js/main.js'],
-    js:  ['./js/**/*.js*'],
-    target: '../public/js/',
+    main: ['./app/main.js'],
+    js:  ['./app/**/*.js*'],
+    target: './public/js/',
     output: 'main.js'
 };
 

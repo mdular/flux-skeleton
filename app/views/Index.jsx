@@ -16,7 +16,10 @@ export default React.createClass({
                 <h1>Index</h1>
                 <ul>
                     <li>
-                        <Link to="index" params={{val:newVal}}>Index with param (currently val={this.props.params.val})</Link>
+                        <Link to="index">Index</Link>
+                    </li>
+                    <li>
+                        <Link to="asyncdemo" params={{val:1, val2:"D-1I4X"}}>Async Demo</Link>
                     </li>
                 </ul>
             </div>

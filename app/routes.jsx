@@ -3,11 +3,12 @@ var { Route, Redirect, NotFoundRoute, Redirect, DefaultRoute } = require("react-
 var App = require("./views/App.jsx");
 var NotFound = require("./views/NotFound.jsx");
 var Index = require("./views/Index.jsx");
+var AsyncDemo = require("./views/AsyncDemo.jsx");
 
 export default (
-    <Route path="/?:val?" handler={App}>
+    <Route path="/" handler={App}>
         <NotFoundRoute handler={NotFound} />
         <DefaultRoute name="index" handler={Index} />
-        {/* <Route name="myview" handler={MyView} path="/myview/?:val?" /> */}
+        <Route name="asyncdemo" handler={AsyncDemo} path="/asyncdemo/?:val?/?:val2?" />
     </Route>
 );
