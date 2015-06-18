@@ -36,8 +36,8 @@ export default React.createClass({
     render: function () {
         //var params = this.context.router.getCurrentParams();
         var params = this.props.params;
-        var comments = this.state.comments.map(function(item) {
-            return item.author;
+        var dataList = this.state.appData.map(function(item, index) {
+            return <li key={index}>{item.data}</li>;
         });
 
         return (
@@ -46,7 +46,7 @@ export default React.createClass({
                 <h1>Test</h1>
                 <p>{params.val}</p>
                 <p>{params.val2}</p>
-                <p>{comments}</p>
+                <ul>{dataList}</ul>
             </div>
         );
     }

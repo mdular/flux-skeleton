@@ -3,19 +3,24 @@ var superagent = require("superagent");
 
 class AsyncDemoActions {
     loadData(val) {
-        superagent.get('data.json') //superagent.get('/getcomments/${val}')
-            .set('X-Requested-With', 'XMLHttpRequest')
-            .send()
-            .end((err, response) => {
-                this.actions.loadDataComplete(response);
-            });
+
+        // simulated asynchronous request
+        setTimeout(() => {
+            this.actions.loadDataComplete({text: '[{"data":"some data"}, {"data":"some other data"}]'});
+        }, 300);
+
+        // ajax example with superagent
+        // superagent.get('/data/' + val)
+        //     .set('X-Requested-With', 'XMLHttpRequest')
+        //     .send()
+        //     .end((err, response) => {
+        //         this.actions.loadDataComplete(response);
+        //     });
 
         this.dispatch();
     }
 
     loadDataComplete(response) {
-        console.log(response);
-
         this.dispatch(JSON.parse(response.text));
     }
 }

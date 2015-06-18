@@ -3,7 +3,7 @@ var AsyncDemoActions = require("../actions/AsyncDemoActions");
 
 class AsyncDemoStore {
     constructor() {
-        this.data = [];
+        this.appData = [];
 
         this.bindAction(AsyncDemoActions.loadData, this.onLoadData);
         this.bindAction(AsyncDemoActions.loadDataComplete, this.onLoadDataComplete);
@@ -15,7 +15,7 @@ class AsyncDemoStore {
     }
 
     onLoadDataComplete(data) {
-        this.data = data;
+        this.appData = data;
         this.loading = false;
     }
 }
