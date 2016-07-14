@@ -2,9 +2,10 @@
 
 ### start hacking:
 
-npm install
+´´´npm install´´´
 
-./node_modules/.bin/gulp
+´´´node_modules/.bin/gulp compile´´´
+´´´node_modules/.bin/gulp watch´´´
 
 ### demo:
 
@@ -15,8 +16,7 @@ simply open public/index.html in a browser (after compilation)
 react
 react-router
 flux framework "alt"
-
-gulp build
+gulp build configuration:
 - jsx transpiler
 - es6 transpiler
 - browserify bundling

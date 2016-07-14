@@ -1,15 +1,15 @@
 /**
  * @author Markus J Doetsch mdular.com
  * TODO: minify / uglify
- * TODO: also handle compass
+ * TODO: also handle scss
  * TODO: source maps
  */
 "use strict";
 
-var gulp = require("gulp");
-var source = require("vinyl-source-stream");
-var browserify = require("browserify");
-var babelify = require("babelify");
+var gulp = require('gulp'),
+    browserify = require("browserify"),
+    source = require("vinyl-source-stream"),
+    uglify = require('gulp-uglify');
 
 var paths = {
     main: ['./app/main.js'],
@@ -18,9 +18,14 @@ var paths = {
     output: 'main.js'
 };
 
-gulp.task('js', function () {
+gulp.task('vendor', function () {
+    // TODO: separate vendor / app compile output
+});
+
+gulp.task('compile', function () {
     browserify(paths.main)
-        .transform(babelify)
+        .transform("babelify", {presets: ["es2015", "react"]})
+        // .external('react')
         .bundle()
         .on('error', function (err) {
             // skip the deletes for more verbosity
@@ -35,8 +40,14 @@ gulp.task('js', function () {
         .pipe(gulp.dest(paths.target));
 });
 
-gulp.task('watch', function () {
-    gulp.watch(paths.js, ['js']);
+gulp.task('js', function () {
+    gulp.src(['./public/js/main.js'])
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/js/build'));
 });
 
-gulp.task('default', ['watch', 'js']);
+gulp.task('watch', function () {
+    gulp.watch(paths.js, ['compile']);
+});
+
+gulp.task('default', ['watch']);
