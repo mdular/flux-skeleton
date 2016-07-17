@@ -1,33 +1,34 @@
 ## react + flux (alt) + react-router + gulp application skeleton
 
-### start hacking:
+### Start hacking:
 
-´´´npm install´´´
+    npm install
 
-´´´node_modules/.bin/gulp compile´´´
-´´´node_modules/.bin/gulp watch´´´
+    node_modules/.bin/gulp compile
+    node_modules/.bin/gulp watch
 
-### demo:
+### Demo:
 
-simply open public/index.html in a browser (after compilation)
+simply open ```public/index.html``` in a browser (after compilation)
 
-### building for production:
+### What's inside:
 
-´´´node_modules/.bin/gulp compile´´´
-´´´node_modules/.bin/gulp build´´´
+- react
+- react-router
+- flux framework "alt"
 
-the result will be in ´´´public/js/build/main.js´´´
-
-### inside:
-
-react
-react-router
-flux framework "alt"
 gulp build configuration:
 - jsx transpiler
 - es6 transpiler
 - browserify bundling
 
+### Building for production:
+
+    node_modules/.bin/gulp compile
+    node_modules/.bin/gulp build
+
+the result will be in ```public/js/build/main.js```
+
 ## TODO:
-[] separate vendor bundle
-[] switch to redux
+- [ ] separate vendor bundle
+- [ ] switch to redux
