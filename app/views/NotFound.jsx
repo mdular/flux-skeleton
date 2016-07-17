@@ -3,14 +3,15 @@
  */
 /*jshint strict: false */
 
-var React = require("react");
-var { Link } = require("react-router");
+var React = require('react');
+var { IndexLink } = require("react-router");
 
-export default React.createClass({
+module.exports = React.createClass({
     render() {
         return (
             <div>
                 <h1>Not found</h1>
+                <IndexLink to="/">Index</IndexLink>
             </div>
         );
     }

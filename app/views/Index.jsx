@@ -3,11 +3,10 @@
  */
 /*jshint strict: false */
 
-var React = require("react");
-var { Link } = require("react-router");
+var React = require('react');
+var { Link, IndexLink } = require("react-router");
 
-export default React.createClass({
-
+module.exports = React.createClass({
     render() {
         var newVal = Math.round(Math.random() * 1000);
 
@@ -16,10 +15,10 @@ export default React.createClass({
                 <h1>Index</h1>
                 <ul>
                     <li>
-                        <Link to="index">Index</Link>
+                        <IndexLink to="/">Index</IndexLink>
                     </li>
                     <li>
-                        <Link to="asyncdemo" params={{val:1, val2:"D-1I4X"}}>Async Demo</Link>
+                        <Link to="/asyncdemo/D1I4X">Async Demo</Link>
                     </li>
                 </ul>
             </div>

@@ -3,13 +3,15 @@
  */
 /*jshint strict: false */
 
-var React = require("react");
-var { RouteHandler } = require("react-router");
+var React = require('react');
 
-export default React.createClass({
-    render: function () {
+module.exports = React.createClass({
+    render() {
         return (
-            <RouteHandler />
+            <div>
+                <h1>App</h1>
+                {this.props.children}
+            </div>
         );
     }
 });
