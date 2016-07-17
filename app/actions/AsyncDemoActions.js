@@ -6,7 +6,8 @@ class AsyncDemoActions {
 
         // simulated asynchronous request
         setTimeout(() => {
-            this.actions.loadDataComplete({text: '[{"data":"some data"}, {"data":"some other data"}]'});
+            let data = [{ref: 'D1I4X', description: 'an item asynchronously returned'}];
+            this.loadDataComplete(JSON.stringify(data));
         }, 300);
 
         // ajax example with superagent
@@ -14,15 +15,15 @@ class AsyncDemoActions {
         //     .set('X-Requested-With', 'XMLHttpRequest')
         //     .send()
         //     .end((err, response) => {
-        //         this.actions.loadDataComplete(response);
+        //         this.loadDataComplete(response);
         //     });
 
-        this.dispatch();
+        return true;
     }
 
     loadDataComplete(response) {
-        this.dispatch(JSON.parse(response.text));
+        return JSON.parse(response);
     }
 }
 
-export default alt.createActions(AsyncDemoActions);
+module.exports = alt.createActions(AsyncDemoActions);

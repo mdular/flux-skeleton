@@ -3,26 +3,23 @@
  */
 /*jshint strict: false */
 
-var React = require("react");
-var { Link } = require("react-router");
+var React = require('react');
+var { Link, IndexLink } = require("react-router");
 var AsyncDemoStore = require("../stores/AsyncDemoStore");
 var AsyncDemoActions = require("../actions/AsyncDemoActions");
 
-export default React.createClass({
-
-    contextTypes: {
-        router: React.PropTypes.func
-    },
+module.exports = React.createClass({
 
     getInitialState() {
+        // console.log(AsyncDemoStore.getState());
+
         return AsyncDemoStore.getState();
     },
 
     componentWillMount() {
         AsyncDemoStore.listen(this.onChange);
 
-        var params = this.props.params
-        AsyncDemoActions.loadData(params.val);
+        AsyncDemoActions.loadData(this.props.params.val);
     },
 
     componentWillUnmount() {
@@ -34,19 +31,24 @@ export default React.createClass({
     },
 
     render: function () {
-        //var params = this.context.router.getCurrentParams();
         var params = this.props.params;
+        // console.log(params);
+
+        console.log(this.state.appData);
+
         var dataList = this.state.appData.map(function(item, index) {
-            return <li key={index}>{item.data}</li>;
+            return <p key={index}>{item.ref}: {item.description}</p>;
         });
+
+        var state = this.state.loading ? 'loading data...' : 'loaded data:'
 
         return (
             <div className="row">
-                <Link to="index">Back</Link>
-                <h1>Test</h1>
-                <p>{params.val}</p>
-                <p>{params.val2}</p>
-                <ul>{dataList}</ul>
+                <IndexLink to="/">Back</IndexLink>
+                <h1>Async Demo</h1>
+                <p>URL param 'val': {params.val}</p>
+                <h3>{state}</h3>
+                {dataList}
             </div>
         );
     }

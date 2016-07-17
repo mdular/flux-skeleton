@@ -5,19 +5,21 @@ class AsyncDemoStore {
     constructor() {
         this.appData = [];
 
-        this.bindAction(AsyncDemoActions.loadData, this.onLoadData);
-        this.bindAction(AsyncDemoActions.loadDataComplete, this.onLoadDataComplete);
+        this.bindListeners({
+            onLoadData: AsyncDemoActions.LOAD_DATA,
+            onLoadDataComplete: AsyncDemoActions.LOAD_DATA_COMPLETE
+        });
     }
 
-    onLoadData() {
-        //this.comments = []; // don't clear to keep state while updating
+    onLoadData(data) {
         this.loading = true;
     }
 
     onLoadDataComplete(data) {
+        console.log('onLoadDataComplete', data);
         this.appData = data;
         this.loading = false;
     }
 }
 
-export default alt.createStore(AsyncDemoStore);
+module.exports = alt.createStore(AsyncDemoStore, 'AsyncDemoStore');
