@@ -40,7 +40,7 @@ gulp.task('compile', function () {
         .pipe(gulp.dest(paths.target));
 });
 
-gulp.task('js', function () {
+gulp.task('build', function () {
     gulp.src(['./public/js/main.js'])
         .pipe(uglify())
         .pipe(gulp.dest('./public/js/build'));
