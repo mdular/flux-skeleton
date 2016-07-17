@@ -24,8 +24,8 @@ gulp build configuration:
 
 ### Building for production:
 
-    node_modules/.bin/gulp compile
-    node_modules/.bin/gulp build
+    NODE_ENV=production node_modules/.bin/gulp compile
+    NODE_ENV=production node_modules/.bin/gulp build
 
 the result will be in ```public/js/build/main.js```
 
