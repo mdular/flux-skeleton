@@ -5,8 +5,6 @@
 
 var React = require("react");
 var {render} = require("react-dom");
-var { Router, Route, IndexRoute, Link, hashHistory } = require("react-router");
-
 var App = require("./views/App.jsx");
 var Index = require("./views/Index.jsx");
 var routes = require("./routes.jsx");

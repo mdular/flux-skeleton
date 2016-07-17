@@ -1,6 +1,9 @@
 var React = require('react');
-// var { Route, Redirect, NotFoundRoute, Redirect, DefaultRoute } = require("react-router");
-var { Router, Route, IndexRoute, Link, hashHistory, NotFoundRoute } = require("react-router");
+import Router from 'react-router/lib/Router';
+import Route from 'react-router/lib/Route';
+import IndexRoute from 'react-router/lib/IndexRoute';
+import hashHistory from 'react-router/lib/hashHistory';
+
 var App = require("./views/App.jsx");
 var NotFound = require("./views/NotFound.jsx");
 var Index = require("./views/Index.jsx");

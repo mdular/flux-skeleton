@@ -4,7 +4,8 @@
 /*jshint strict: false */
 
 var React = require('react');
-var { Link, IndexLink } = require("react-router");
+import Link from 'react-router/lib/Link';
+import IndexLink from 'react-router/lib/IndexLink';
 var AsyncDemoStore = require("../stores/AsyncDemoStore");
 var AsyncDemoActions = require("../actions/AsyncDemoActions");
 

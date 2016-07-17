@@ -4,7 +4,7 @@
 /*jshint strict: false */
 
 var React = require('react');
-var { IndexLink } = require("react-router");
+import IndexLink from 'react-router/lib/IndexLink';
 
 module.exports = React.createClass({
     render() {
