@@ -3,14 +3,8 @@
  */
 /*jshint strict: false */ // is compiled in strict mode
 
-var React = require("react");
 var {render} = require("react-dom");
-var App = require("./views/App.jsx");
-var Index = require("./views/Index.jsx");
 var routes = require("./routes.jsx");
-
-// var Navigation = require("./views/Navigation.jsx");
-// var EventActions = require("./actions/EventActions");
 
 global.renderApp = function () {
     "use strict";
