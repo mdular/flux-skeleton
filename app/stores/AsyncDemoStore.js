@@ -16,7 +16,7 @@ class AsyncDemoStore {
     }
 
     onLoadDataComplete(data) {
-        console.log('onLoadDataComplete', data);
+        // console.log('onLoadDataComplete', data);
         this.appData = data;
         this.loading = false;
     }

@@ -3,9 +3,7 @@
  */
 /*jshint strict: false */
 
-var React = require('react');
-import Link from 'react-router/lib/Link';
-import IndexLink from 'react-router/lib/IndexLink';
+import React from 'react';
 var AsyncDemoStore = require("../stores/AsyncDemoStore");
 var AsyncDemoActions = require("../actions/AsyncDemoActions");
 
@@ -35,7 +33,7 @@ module.exports = React.createClass({
         var params = this.props.params;
         // console.log(params);
 
-        console.log(this.state.appData);
+        // console.log(this.state.appData);
 
         var dataList = this.state.appData.map(function(item, index) {
             return <p key={index}>{item.ref}: {item.description}</p>;
@@ -45,7 +43,6 @@ module.exports = React.createClass({
 
         return (
             <div className="row">
-                <IndexLink to="/">Back</IndexLink>
                 <h1>Async Demo</h1>
                 <p>URL param 'val': {params.val}</p>
                 <h3>{state}</h3>
