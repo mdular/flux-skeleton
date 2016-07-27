@@ -4,42 +4,34 @@
 /*jshint strict: false */
 
 import React from 'react';
-var AsyncDemoStore = require("../stores/AsyncDemoStore");
-var AsyncDemoActions = require("../actions/AsyncDemoActions");
 
 module.exports = React.createClass({
 
-    getInitialState() {
-        // console.log(AsyncDemoStore.getState());
-
-        return AsyncDemoStore.getState();
-    },
+    // getInitialState() {
+    //     // console.log(AsyncDemoStore.getState());
+    //     // return AsyncDemoStore.getState();
+    //     return {appData:[], loading:false};
+    // },
 
     componentWillMount() {
-        AsyncDemoStore.listen(this.onChange);
-
-        AsyncDemoActions.loadData(this.props.params.val);
+        this.props.loadData(this.props.params.val);
     },
 
-    componentWillUnmount() {
-        AsyncDemoStore.unlisten(this.onChange);
-    },
-
-    onChange() {
-        this.setState(AsyncDemoStore.getState());
-    },
+    // componentWillUnmount() {
+    //
+    // },
 
     render: function () {
+        // console.log(this.props);
+
         var params = this.props.params;
         // console.log(params);
 
-        // console.log(this.state.appData);
-
-        var dataList = this.state.appData.map(function(item, index) {
+        var dataList = this.props.appData.map(function(item, index) {
             return <p key={index}>{item.ref}: {item.description}</p>;
         });
 
-        var state = this.state.loading ? 'loading data...' : 'loaded data:'
+        var state = this.props.loading ? 'loading data...' : 'loaded data:'
 
         return (
             <div className="row">

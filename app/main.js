@@ -10,10 +10,11 @@ global.renderApp = function () {
     "use strict";
 
     render(
-        routes,
-        document.querySelector('main')
+            routes,
+            document.querySelector('main')
     );
 };
+renderApp();
 
 // example to expose an API to our app
 // global.refreshEvents = function (date, employeeId) {
@@ -25,5 +26,3 @@ global.renderApp = function () {
 //         EventActions.loadWeek(date, employeeId);
 //     }
 // };
-
-renderApp();

@@ -15,7 +15,7 @@ simply open ```public/index.html``` in a browser (after compilation)
 
 - react
 - react-router
-- flux framework "alt"
+- redux for data flow
 
 gulp build configuration:
 - jsx transpiler
@@ -31,4 +31,4 @@ the result will be in ```public/js/build/main.js```
 
 ## TODO:
 - [ ] separate vendor bundle
-- [ ] switch to redux
+- [x] switch to redux (in progress)
