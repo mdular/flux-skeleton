@@ -6,7 +6,7 @@
 import React from 'react';
 import IndexLink from 'react-router/lib/IndexLink';
 
-module.exports = React.createClass({
+export default React.createClass({
     render() {
         return (
             <div>

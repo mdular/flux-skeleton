@@ -1,15 +1,10 @@
-var React = require('react');
-import Router from 'react-router/lib/Router';
+import React from 'react';
 import Route from 'react-router/lib/Route';
 import IndexRoute from 'react-router/lib/IndexRoute';
-import hashHistory from 'react-router/lib/hashHistory';
 
-import { Provider } from 'react-redux';
-import store from './store';
-
-var App = require("./views/App.jsx");
-var NotFound = require("./views/NotFound.jsx");
-var Index = require("./views/Index.jsx");
+import App from './views/App.jsx';
+import NotFound from './views/NotFound.jsx';
+import Index from './views/Index.jsx';
 import AsyncDemoContainer from './containers/AsyncDemoContainer';
 
 var routes = (
@@ -20,11 +15,4 @@ var routes = (
     </Route>
 );
 
-// TODO: separate root
-var root = (
-    <Provider store={store}>
-        <Router history={hashHistory} routes={routes} />
-    </Provider>
-);
-
-module.exports = root;
+export default routes;
