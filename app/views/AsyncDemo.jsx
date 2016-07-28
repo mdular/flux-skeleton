@@ -4,17 +4,20 @@
 /*jshint strict: false */
 
 import React from 'react';
+import { Link } from 'react-router';
 
 module.exports = React.createClass({
 
-    // getInitialState() {
-    //     // console.log(AsyncDemoStore.getState());
-    //     // return AsyncDemoStore.getState();
-    //     return {appData:[], loading:false};
-    // },
-
     componentWillMount() {
         this.props.loadData(this.props.params.val);
+    },
+
+    componentDidUpdate(prevProps, prevState) {
+        // console.log('componentDidUpdate', prevProps, this.props);
+
+        if (prevProps.params.val !== this.props.params.val) {
+            this.props.loadData(this.props.params.val);
+        }
     },
 
     // componentWillUnmount() {
@@ -23,15 +26,23 @@ module.exports = React.createClass({
 
     render: function () {
         // console.log(this.props);
+        let params = this.props.params;
+        let state = this.props.loading ? 'loading...' : 'loading done.';
 
-        var params = this.props.params;
-        // console.log(params);
+        let dataList = Object.keys(this.props.data).map((reference, index) => {
+            let properties = Object.keys(this.props.data[reference]).map((property, index) => {
+                return (
+                    <p key={index}>{property}:{this.props.data[reference][property]}</p>
+                );
+            });
 
-        var dataList = this.props.appData.map(function(item, index) {
-            return <p key={index}>{item.ref}: {item.description}</p>;
+            return (
+                <div key={index}>
+                    <h3>{reference}</h3>
+                    {properties}
+                </div>
+            );
         });
-
-        var state = this.props.loading ? 'loading data...' : 'loaded data:'
 
         return (
             <div className="row">
@@ -39,6 +50,7 @@ module.exports = React.createClass({
                 <p>URL param 'val': {params.val}</p>
                 <h3>{state}</h3>
                 {dataList}
+                <Link to="/asyncdemo/XX234">XX234</Link>
             </div>
         );
     }

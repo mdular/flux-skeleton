@@ -1,18 +1,30 @@
 import {combineReducers} from 'redux';
-import {LOAD_DATA, SET_LOADING, loadData, setLoading} from '../actions/AsyncDemoActions';
+import {LOAD_DATA, SET_LOADING, LOAD_DATA_COMPLETE, loadData, setLoading} from '../actions/AsyncDemoActions';
 
 function loading (state = false, action) {
-    if (action.type === SET_LOADING) {
-        return action.state;
+    // console.log('loading reducer', action);
+
+    switch (action.type) {
+        case SET_LOADING:
+            return action.state;
+        default:
+            return state;
     }
-    return state;
 }
 
-function data (data = [{ref: 'null', description: 'not loaded'}], action) {
-    if (action.type === LOAD_DATA) {
-        return action.data;
+function data (state = {}, action) {
+    // console.log('data reducer', action);
+
+    switch (action.type) {
+        case LOAD_DATA:
+            return state;
+        case LOAD_DATA_COMPLETE:
+            return Object.assign({}, state, {
+                [action.reference]: JSON.parse(action.data)
+            });
+        default:
+            return state;
     }
-    return data;
 }
 
 const asyncDemo = combineReducers({

@@ -5,7 +5,7 @@ import AsyncDemo from '../views/AsyncDemo.jsx';
 const mapStateToProps = (state) => {
     return {
         loading: state.loading,
-        appData: state.data
+        data: state.data
     };
 }
 
