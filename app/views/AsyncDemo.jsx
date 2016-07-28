@@ -50,7 +50,8 @@ module.exports = React.createClass({
                 <p>URL param 'val': {params.val}</p>
                 <h3>{state}</h3>
                 {dataList}
-                <Link to="/asyncdemo/XX234">XX234</Link>
+                {/* <Link to="/asyncdemo/XX234">XX234</Link> */}
+                <button onClick={() => {this.props.loadData('XX234')}}>Load XX234</button>
             </div>
         );
     }

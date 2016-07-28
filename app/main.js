@@ -26,3 +26,9 @@ renderApp();
 //         EventActions.loadWeek(date, employeeId);
 //     }
 // };
+
+// import store from './store';
+// console.log('state', store.getState());
+// let unsubscribe = store.subscribe(() => {
+//     console.log('state', store.getState());
+// })
