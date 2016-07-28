@@ -60,7 +60,7 @@ Action > Reducer > State > Container > Component > ```this.props``` (can contain
     NODE_ENV=production node_modules/.bin/gulp compile
     NODE_ENV=production node_modules/.bin/gulp build
 
-the result will be in ```public/js/build/main.js```
+the result will be in ```public/js/build/main.js``` with significantly smaller filesize.
 
 ### TODO:
 - [ ] separate vendor bundle
